@@ -1,25 +1,25 @@
 import pygame
-import Enemy
-import Player
+#import Enemy
+#import Players
+from Player import ammo
 from pygame.math import Vector2
 from pygame.rect import Rect
-
-
+from Player import Players
+from Player import screen
 # config:
 FRAMERATE = 60
-SCREEN_SIZE = Vector2(1200, 800)
 
 
 # pygame init:
 pygame.init()
-screen = pygame.display.set_mode(SCREEN_SIZE)
-pygame.display.set_caption("")
-
+pygame.display.set_caption("Idle Game - Tam/Cai Final Project")
 
 # definitions:
 
+dummy = Players(600,400)
 
-
+for i in range(2):
+    ammo.append(dummy.bullet())
 def main():
     # game setup:
     clock = pygame.time.Clock()
@@ -36,6 +36,9 @@ def main():
 
         # draw:
         screen.fill("#000000")
+        dummy.draw()
+        for i in range(len(ammo)):
+            ammo[i]
 
         pygame.display.flip()
 
